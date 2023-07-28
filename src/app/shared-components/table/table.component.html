@@ -1,0 +1,31 @@
+<div class="table-header">
+    <input type="checkbox" [checked]="isAllSelected()" (change)="onSelectAll($event)" />
+    <p>Selected {{ selectedRows }}</p>
+    <button [class.disabled]="selectedRows === 0" (click)="onDownload()" alt="Check Console Log">Download</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Device</th>
+            <th>Path</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data" [class.active]="row.isSelected" (click)="onRowClick(row)">
+            <td *ngIf="row.status === 'available'"><input type="checkbox" [checked]="row.isSelected" (change)="onRowSelection(row, $event)" /></td>
+            <td *ngIf="row.status !== 'available'"><input type="checkbox" class="disabled" disabled /></td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.device }}</td>
+            <td>{{ row.path }}</td>
+            <td class="text-capitalize">
+                <div class="circle circle-true" *ngIf="row.status === 'available'"></div>
+                <div class="circle circle-false" *ngIf="row.status !== 'available'"></div>
+                <span>{{ row.status }}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  

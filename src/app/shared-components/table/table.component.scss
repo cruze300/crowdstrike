@@ -1,0 +1,71 @@
+// CSS IMPORTS
+@import '../../../assets/css/color.scss';
+
+.table-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-bottom: 1px solid $border;
+    padding: 10px;
+    input {
+        margin-right: 15px;
+    }
+    button {
+        margin-left: auto;
+    }
+}
+table {
+    width: 100%;
+    thead {
+        tr {
+            border-bottom: 1px solid $border;
+            th {
+                text-align: left;
+                padding: 20px 0;
+                &:last-child {
+                    padding-left: 28px;
+                }
+            }
+        }
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid $border;
+            cursor: pointer;
+            &:hover {
+                background: $table-bg-one;
+            }
+            &.active {
+                background: $table-bg-two;
+            }
+            td {
+                padding: 15px 0;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 100%;
+                margin: 0;
+                &:first-child {
+                    input {
+                        margin: 0 15px;
+                    }
+                }
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 20px;
+                    margin-right: 5px;
+                    background: $green-active;
+                    display: inline-block;
+                    &.circle-false {
+                        background: $white;
+                    }
+                }
+                span {
+                    display: block;
+                    margin: -18px 0 0 30px;
+                }
+            }
+            
+        }
+    }
+}
